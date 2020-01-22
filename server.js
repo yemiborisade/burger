@@ -20,7 +20,7 @@ var connection = mysql.createConnection({
   port: 8889,
   user: "root",
   password: "root",
-  database: "watch_movies_db"
+  database: "burgers_db"
 });
 
 connection.connect(function(err) {
@@ -34,18 +34,18 @@ connection.connect(function(err) {
 
 // Use Handlebars to render the main index.html page with the plans in it.
 app.get("/", function(req, res) {
-  connection.query("SELECT * FROM movies;", function(err, data) {
+  connection.query("SELECT * FROM burgers;", function(err, data) {
     if (err) {
       return res.status(500).end();
     }
 
-    res.render("index", { movies: data });
+    res.render("index", { burgers: data });
   });
 });
 
 // Create a new plan
-app.post("/api/movies", function(req, res) {
-  connection.query("INSERT INTO movies (movie) VALUES (?)", [req.body.movie], function(err, result) {
+app.post("/api/burgers", function(req, res) {
+  connection.query("INSERT INTO burgers (burger_name) VALUES (?)", [req.body.burger_name], function(err, result) {
     if (err) {
       return res.status(500).end();
     }
@@ -57,8 +57,8 @@ app.post("/api/movies", function(req, res) {
 });
 
 // Update a plan
-app.put("/api/movies/:id", function(req, res) {
-  connection.query("UPDATE movies SET movie = ? WHERE id = ?", [req.body.movie, req.params.id], function(err, result) {
+app.put("/api/burgers/:id", function(req, res) {
+  connection.query("UPDATE movies SET burger_name = ? WHERE id = ?", [req.body.burger_name, req.params.id], function(err, result) {
     if (err) {
       // If an error occurred, send a generic server failure
       return res.status(500).end();
@@ -73,8 +73,8 @@ app.put("/api/movies/:id", function(req, res) {
 });
 
 // Delete a plan
-app.delete("/api/movies/:id", function(req, res) {
-  connection.query("DELETE FROM movies WHERE id = ?", [req.params.id], function(err, result) {
+app.delete("/api/burgers/:id", function(req, res) {
+  connection.query("DELETE FROM burgers WHERE id = ?", [req.params.id], function(err, result) {
     if (err) {
       // If an error occurred, send a generic server failure
       return res.status(500).end();
