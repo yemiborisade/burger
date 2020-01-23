@@ -1,3 +1,10 @@
+.jumbotron {
+  font-family: 'Bangers', cursive;
+  color: rgb(199, 23, 23);
+  background-color: #ffe600;
+  text-align: center;
+}
+
 li {
     padding: 5px;
     margin: 5px;
