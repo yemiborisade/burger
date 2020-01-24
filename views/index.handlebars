@@ -2,13 +2,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
 
-<div class="jumbotron">
-  <img src="http://cdn.newsapi.com.au/image/v1/962a222f1a41e874008c7c8e6354bacd" alt="burglar" style="width:400px; height:300px">
+<div class="jumbotron" style="background-color: yellow;">
+  <img src="http://cdn.newsapi.com.au/image/v1/962a222f1a41e874008c7c8e6354bacd" alt="burglar" style="width:625px; height:250px">
 <h1>Hamburglers Burger Bash!</h1>
 </div>
 
-<h2>Your slate to choose from:</h2>
+<i>Your slate to choose from:</i>
 
 <ul>
   {{#each burgers}}
@@ -18,7 +19,7 @@
   {{/each}}
 </ul>
 
-<h2>Burgers that have been eaten!</h2>
+<i>Burgers that have been eaten!</i>
 
 <ul>
   {{#each burgers}}
@@ -28,13 +29,13 @@
   {{/each}}
 </ul>
 
-<h2>Order up!</h2>
+<i>Order up!</i>
 <form class="create-form">
 
   <div class="form-group">
-    <label for="ca">Burger Name:</label>
+    <i for="ca">Burger Name:</i>
     <input type="text" id="ca" name="name">
   </div>
 
-  <button type="submit"class="btn btn-outline-danger">Add Burger</button>
+  <button type="submit">Add Burger</button>
 </form>
